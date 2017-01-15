@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
         // TODO (2) Call getResponseFromHttpUrl and display the results in mSearchResultsTextView
         // TODO (3) Surround the call to getResponseFromHttpUrl with a try / catch block to catch an IOException
+        String gitHubSearchResults = null;
+        try {
+            gitHubSearchResults = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
+            mSearchResultsTextView.setText(gitHubSearchResults);
+
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
